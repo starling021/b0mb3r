@@ -1,3 +1,4 @@
+import asyncio
 import inspect
 import logging
 import os
@@ -100,9 +101,13 @@ def load_services():
 
 
 async def attack(number_of_cycles: int, phone_code: str, phone: str):
+    services = load_services().items()
+
     status["started_at"] = datetime.now().isoformat()
+    status["end_at"] = len(services) * number_of_cycles
+
     for cycle in range(number_of_cycles):
-        for i, a in enumerate(load_services().items()):
+        for i, a in enumerate(services):
             module, service = a
             status["currently_at"] = (i + 1) * (cycle + 1)
             try:
@@ -114,8 +119,10 @@ async def attack(number_of_cycles: int, phone_code: str, phone: str):
             except ValueError as error:
                 sentry_sdk.capture_exception(error)
                 continue
+
     status["started_at"] = None
     status["currently_at"] = None
+    status["end_at"] = None
 
 
 @routes.get("/")
@@ -165,7 +172,7 @@ async def start_attack(request):
         if phone_code == "":
             phone_code = str(phonenumbers.parse("+" + phone).country_code)
 
-        await attack(number_of_cycles, phone_code, phone)
+        asyncio.get_event_loop().create_task(attack(number_of_cycles, phone_code, phone))
 
         return web.json_response({"success": True}, headers={"Access-Control-Allow-Origin": "*"})
     except Exception as error:
@@ -184,9 +191,8 @@ async def start_attack(request):
 
 
 @routes.get("/attack/status")
-async def start_status(request):
-    # since there is no timezone, hope that your
-    # bomber instance is in the same timezone as you
+async def start_status(_):
+    # Since there is no timezone, hope that your b0mb3r instance is in the same timezone as you
     return web.json_response(status)
 
 

@@ -2,8 +2,10 @@ from service import Service
 
 
 class Sportmaster(Service):
+    phone_codes = ["7"]
+
     async def run(self):
         await self.get(
-            "https://www.sportmaster.ua/",
-            params={"module": "users", "action": "SendSMSReg", "phone": self.formatted_phone},
+            "https://www.sportmaster.ru/user/session/sendSmsCode.do",
+            params={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**"),},
         )

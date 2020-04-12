@@ -1,5 +1,6 @@
 const input = document.querySelector('#phone');
 let intlTelInput;
+let bar;
 
 const countryPlaceholderMap = {
     ru: "912 345-67-89",
@@ -22,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         initialCountry: 'ru',
         separateDialCode: true,
     });
+
+    bar = new ProgressBar.Circle(document.querySelector("#loader"), {
+        strokeWidth: 12,
+        color: '#dc3545',
+        trailColor: '#eee',
+        trailWidth: 12,
+        svgStyle: null
+    });
 });
 
 input.addEventListener("countrychange", () => {
@@ -31,22 +40,33 @@ input.addEventListener("countrychange", () => {
 document.querySelector("#main-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    document.querySelector('main').style.cssText = "animation:blur; animation-duration:0.6s; animation-fill-mode:both";
+    setTimeout(() => document.querySelector('#block-ui').style.display = "block", 850);
+    document.querySelector('main').style.cssText = "animation:blur; animation-duration:850ms; animation-fill-mode:both";
     document.querySelector('footer').style.cssText = document.querySelector('main').style.cssText;
-
-    setTimeout(() => document.querySelector('#block-ui').style.display = "block", 600);
+    document.querySelector('#loader').style.cssText = "animation:fadeIn; animation-duration:850ms; animation-fill-mode:both";
 
     const formData = new FormData(document.querySelector('#main-form'));
     formData.append('phone_code', intlTelInput.getSelectedCountryData().dialCode);
-    const response = await fetch("/attack/start", {
+    await fetch("/attack/start", {
         method: 'POST',
         body: formData,
     });
 
-    if (response) {
-        document.querySelector('main').style.cssText = "animation:blur; animation-duration:0.6s; animation-fill-mode:both; animation-direction:reverse";
-        document.querySelector('footer').style.cssText = document.querySelector('main').style.cssText;
-        
-        setTimeout(() => document.querySelector('#block-ui').style.display = "none", 600);
-    }
+    const interval = setInterval(async () => {
+        await fetch("/attack/status", {
+            method: 'GET'
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            bar.animate(100 / data.end_at * data.currently_at / 100, {duration: 250});
+
+            if (data.end_at === data.currently_at) {
+                clearInterval(interval);
+                setTimeout(() => document.querySelector('#block-ui').style.display = "none", 850);
+                document.querySelector('#loader').style.cssText = "animation:fadeOut; animation-duration:850ms; animation-fill-mode:both";
+                document.querySelector('main').style.cssText = "animation:blur; animation-duration:850ms; animation-fill-mode:both; animation-direction:reverse";
+                document.querySelector('footer').style.cssText = document.querySelector('main').style.cssText;
+            }
+        });
+    }, 500);
 });
