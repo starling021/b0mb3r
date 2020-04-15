@@ -24,7 +24,7 @@
      pkg install clang
      ```
 
-2. Введите следующую команду ([куда?](http://comp-profi.com/kak-vyzvat-komandnuyu-stroku-ili-konsol-windows/)):
+2. Введите следующую команду в командную строку ([куда?](http://comp-profi.com/kak-vyzvat-komandnuyu-stroku-ili-konsol-windows/)):
 
 ```sh
 pip3 install b0mb3r -U
