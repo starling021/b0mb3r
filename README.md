@@ -54,3 +54,8 @@ pip3 install b0mb3r -U
 **Остались вопросы?** Я в [Telegram](https://t.me/crinny). (**консультация по цене от 100 рублей**). Убедитесь, что прочли [это](http://neprivet.ru/), прежде чем писать. 
 
 Канал с новостями о разработке в Telegram: <https://t.me/b0mb3rch>. Чат: https://t.me/b0mb3r4at
+
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/crinny/b0mb3r.svg)](https://starchart.cc/crinny/b0mb3r)
