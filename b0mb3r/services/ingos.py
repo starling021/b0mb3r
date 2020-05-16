@@ -1,10 +1,10 @@
 from random import randint
 
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class Ingos(Service):
-    phone_codes = ["7"]
+    phone_codes = [7]
 
     async def run(self):
         await self.post(

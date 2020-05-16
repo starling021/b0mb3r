@@ -2,8 +2,10 @@ import random
 import re
 import string
 from abc import ABC, abstractmethod
+from typing import Callable
 
-import aiohttp
+import httpx
+from loguru import logger
 
 
 class Service(ABC):
@@ -13,14 +15,12 @@ class Service(ABC):
     }
     country_codes = {"7": "ru", "375": "by", "380": "ua"}
     phone_codes = []
-    client = aiohttp.ClientSession(
-        headers=headers, connector=aiohttp.TCPConnector(verify_ssl=False)
-    )
+    client = httpx.AsyncClient(headers=headers, verify=False)
 
-    def __init__(self, phone: str, phone_code: str):
-        self.phone = phone
-        self.phone_code = phone_code
-        self.formatted_phone = self.phone_code + self.phone
+    def __init__(self, phone: str, country_code: int):
+        self.country_code = str(country_code)
+        self.phone = phone[len(self.country_code) :]
+        self.formatted_phone = phone
 
         self.russian_name = "".join(
             random.choice("АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя")
@@ -31,13 +31,27 @@ class Service(ABC):
         )
         self.email = self.username + "@gmail.com"
 
-        self.get = self.client.get
-        self.post = self.client.post
-        self.options = self.client.options
+    async def get(self, *args, **kwargs):
+        return await self.request_logger(self.client.get, *args, **kwargs)
+
+    async def post(self, *args, **kwargs):
+        return await self.request_logger(self.client.post, *args, **kwargs)
+
+    async def options(self, *args, **kwargs):
+        return await self.request_logger(self.client.options, *args, **kwargs)
+
+    async def request_logger(self, function: Callable, *args, **kwargs):
+        response = await function(*args, **kwargs)
+        if response.is_error:
+            logger.error(
+                f"{self.__class__.__name__} returned an error HTTP code: {response.status_code}"
+            )
+
+        return response
 
     async def get_csrf_token(self, url: str, pattern):
         response = await self.get(url)
-        return re.search(pattern, await response.text()).group(1).strip()
+        return re.search(pattern, response.text).group(1).strip()
 
     @staticmethod
     def format(phone: str, mask: str, mask_symbol: str = "*"):

@@ -1,4 +1,4 @@
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class LevinBH(Service):

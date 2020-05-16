@@ -1,10 +1,10 @@
 from time import time
 
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class Panda99(Service):
-    phone_codes = ["7"]
+    phone_codes = [7]
 
     async def run(self):
         await self.post(

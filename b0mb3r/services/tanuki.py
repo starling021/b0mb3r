@@ -1,6 +1,6 @@
 from random import randint
 
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class Tanuki(Service):
@@ -16,6 +16,6 @@ class Tanuki(Service):
                     "cityId": "9",
                 },
                 "method": {"name": "sendSmsCode"},
-                "data": {"phone": f"(+{self.phone_code}){self.phone}", "type": 1},
+                "data": {"phone": f"(+{self.country_code}){self.phone}", "type": 1},
             },
         )

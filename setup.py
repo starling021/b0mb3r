@@ -1,14 +1,15 @@
 from setuptools import setup
 
 NAME = "b0mb3r"
-DESCRIPTION = "Открытый и бесплатный СМС бомбер 💣"
+DESCRIPTION = "Открытый и бесплатный СМС бомбер"
 URL = "https://github.com/crinny/b0mb3r"
 EMAIL = ""
 AUTHOR = "crinny"
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = "2.5.9"
+VERSION = "3.0"
 
-REQUIRED = ["aiohttp", "aiodns", "phonenumbers", "click", "sentry-sdk"]
+with open("requirements.txt", encoding="utf-8") as f:
+    REQUIRED = f.readlines()
 
 try:
     with open("README.md", encoding="utf-8") as f:
@@ -27,12 +28,10 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=["b0mb3r"],
-    entry_points={
-        "console_scripts": ["b0mb3r=b0mb3r.__main__:main", "bomber=b0mb3r.__main__:main",]
-    },
+    entry_points={"console_scripts": ["b0mb3r=b0mb3r.cli:main", "bomber=b0mb3r.cli:main",]},
     install_requires=REQUIRED,
     extras_require={},
-    package_data={"b0mb3r": ["static/*/*", "templates/*", "services/*"]},
+    package_data={"b0mb3r": ["services/*", "app/*", "app/*/*", "app/static/*/*"]},
     license="Mozilla Public License 2.0",
     classifiers=[
         "Programming Language :: Python",

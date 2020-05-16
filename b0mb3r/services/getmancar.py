@@ -1,8 +1,8 @@
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class Getmancar(Service):
-    phone_codes = ["380"]
+    phone_codes = [380]
 
     async def run(self):
         await self.post(

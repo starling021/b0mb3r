@@ -1,6 +1,6 @@
 from random import randint
 
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class Qlean(Service):

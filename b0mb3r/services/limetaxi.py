@@ -1,10 +1,10 @@
 from random import choice
 
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class LimeTaxi(Service):
-    phone_codes = ["380"]
+    phone_codes = [380]
 
     async def run(self):
         locations = [

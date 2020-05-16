@@ -1,9 +1,9 @@
-from service import Service
+from b0mb3r.services.service import Service
 
 
 class InformaticsYandex(Service):
     async def run(self):
-        if self.phone_code in self.country_codes:
+        if self.country_code in self.country_codes:
             country = {"7": "RU", "380": "UA", "375": "BE"}
 
             await self.post(
