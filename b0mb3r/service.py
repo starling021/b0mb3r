@@ -22,7 +22,7 @@ def prepare_services(directory: str) -> Dict[Union[int, str], list]:
             all_phone_codes[phone_code].append(service)
 
     for special_service in special_services:
-        for key in all_phone_codes.keys():
+        for key in all_phone_codes:
             all_phone_codes[key].append(special_service)
 
     all_phone_codes["other"] = special_services
