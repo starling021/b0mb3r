@@ -10,10 +10,7 @@ from b0mb3r.utils import await_with_callback
 
 @logger.catch
 async def perform_attack(attack_id: str, number_of_cycles: int, country_code: int, phone: str):
-    if country_code in services:
-        usable_services = services[country_code]
-    else:
-        usable_services = services["other"]
+    usable_services = services.get(country_code, services["other"])
 
     status[attack_id]["started_at"] = datetime.now().isoformat()
     status[attack_id]["end_at"] = len(usable_services) * number_of_cycles

@@ -24,7 +24,7 @@ def open_url(url: str):
 @logger.catch
 def retrieve_installed_version() -> str:
     package_info = subprocess.run(
-        [sys.executable, "-m", "pip", "show", "b0mb3r"], stdout=subprocess.PIPE
+        [sys.executable, "-m", "pip", "show", "b0mb3r"], stdout=subprocess.PIPE, check=True
     )
     bytes_version = re.search(br"Version: ([0-9]\.[0-9.]*)", package_info.stdout).group(1)
     return bytes_version.decode()
