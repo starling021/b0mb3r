@@ -18,14 +18,16 @@
 
     <h3>Для Android</h3>
 
-    Установите приложение [Termux](https://play.google.com/store/apps/details?id=com.termux), запустите его и введите следующие команды поочерёдно:
+    Установите приложение [Termux](https://play.google.com/store/apps/details?id=com.termux), запустите его и введите следующую команду:
      ```sh
-     pkg install python
-     pkg install clang
-     pkg install make
+     pkg install python clang make -y
      ```
+     <h3>Для Linux</h3>
 
-2. Введите следующую команду в командную строку ([куда?](http://comp-profi.com/kak-vyzvat-komandnuyu-stroku-ili-konsol-windows/)):
+     Скорее всего, у вас уже установлен Python 3. Если это не так, следуйте [инструкции](https://realpython.com/installing-python/#linux)
+     
+
+2. Введите следующую команду в [командную строку](http://comp-profi.com/kak-vyzvat-komandnuyu-stroku-ili-konsol-windows/) (Windows), терминал (Linux) или Termux (Android):
 
 ```sh
 pip3 install b0mb3r -U
