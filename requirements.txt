@@ -1,3 +1,4 @@
+wheel
 fastapi
 uvicorn
 aiofiles

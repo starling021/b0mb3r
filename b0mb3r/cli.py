@@ -1,4 +1,6 @@
+import asyncio
 import os
+import sys
 
 import click
 import pkg_resources
@@ -19,6 +21,10 @@ logger.add(sentry_handler, level="ERROR")
 @click.option("--ip", default="127.0.0.1")
 @click.option("--port", default=8080)
 def main(ip: str, port: int):
+    if sys.platform == "win32":
+        loop = asyncio.ProactorEventLoop()
+        asyncio.set_event_loop(loop)
+
     open_url(f"http://{ip}:{port}/")
     uvicorn.run(app, host=ip, port=port, log_level="error")
 

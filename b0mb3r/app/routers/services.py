@@ -11,7 +11,7 @@ router = APIRouter()
 @logger.catch
 @router.get("/count")
 def get_services_count(
-    country_code: Union[int, str]  # It will be str if "Not listed" country is selected in frontend
+    country_code: Union[int, str]  # It will be str if user have selected "Not listed" country
 ):
     if country_code in services:
         return {"count": len(services[country_code])}

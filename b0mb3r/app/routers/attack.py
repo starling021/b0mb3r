@@ -18,6 +18,7 @@ router = APIRouter()
 async def start_attack(attack: AttackModel):
     only_digits_phone = re.sub("[^0-9]", "", attack.phone)
     country_code = phonenumbers.parse(f"+{only_digits_phone}").country_code
+    # May seem confusing, but phone is actually a full international phone: 79001234567
 
     attack_id = uuid.uuid4().hex
     status[attack_id] = {"started_at": None, "currently_at": None, "end_at": None}
