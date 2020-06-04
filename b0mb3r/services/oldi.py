@@ -9,6 +9,6 @@ class Oldi(Service):
             "https://www.oldi.ru/ajax/reg.php",
             data={
                 "method": "isUserPhone",
-                "phone": self.format(
-                    self.formatted_phone, "+* (***) ***-**-**")},
+                "phone": self.format(self.formatted_phone, "+* (***) ***-**-**"),
+            },
         )
