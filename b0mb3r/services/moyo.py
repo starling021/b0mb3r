@@ -9,7 +9,7 @@ class Moyo(Service):
             "https://www.moyo.ua/identity/registration",
             data={
                 "firstname": self.russian_name,
-                "phone": self.formatted_phone,
+                "phone": "+" + self.formatted_phone,
                 "email": self.email,
             },
         )

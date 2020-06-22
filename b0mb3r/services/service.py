@@ -20,7 +20,7 @@ class Service(ABC):
     def __init__(self, phone: str, country_code: int):
         self.country_code = str(country_code)
         self.phone = phone[len(self.country_code) :]
-        self.formatted_phone = phone
+        self.formatted_phone = self.country_code + phone
 
         self.russian_name = "".join(
             random.choice("АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя")

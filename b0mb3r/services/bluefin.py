@@ -7,5 +7,9 @@ class Bluefin(Service):
     async def run(self):
         await self.post(
             "https://bluefin.moscow/auth/register/",
-            data={"phone": self.format(self.phone, "(***)***-**-**"), "sendphone": "Далее"},
+            data={
+                "phone": self.format(self.phone, "(***) ***-**-**"),
+                "send": "maybe",
+                "sendphone": "Далее",
+            },
         )
