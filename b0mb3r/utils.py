@@ -11,14 +11,15 @@ from loguru import logger
 @logger.catch
 def open_url(url: str):
     logger.info(f"Opening {url}...")
-    try:
-        if "com.termux" in os.environ.get("PREFIX", ""):  # If device is running Termux
+    if "com.termux" in os.environ.get("PREFIX", ""):  # If device is running Termux
+        try:
             subprocess.run(
                 ["am", "start", "--user", "0", "-a", "android.intent.action.VIEW", "-d", url]
             )
-    except FileNotFoundError:
-        pass
-    webbrowser.open(url, new=2, autoraise=True)
+        except FileNotFoundError:
+            pass
+    else:
+        webbrowser.open(url, new=2, autoraise=True)
 
 
 @logger.catch
