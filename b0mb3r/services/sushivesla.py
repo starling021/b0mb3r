@@ -7,7 +7,5 @@ class SushiVesla(Service):
     async def run(self):
         await self.post(
             "https://xn--80adjkr6adm9b.xn--p1ai/api/v5/user/start-authorization",
-            json={"phone": self.format(
-                self.formatted_phone, "+* *** ***-**-**")},
+            json={"phone": self.format(self.formatted_phone, "+* *** ***-**-**")},
         )
-

@@ -7,7 +7,5 @@ class Rbt(Service):
     async def run(self):
         await self.post(
             "https://www.rbt.ru/user/sendCode/",
-            data={
-                "phone": self.format(
-                    self.formatted_phone, "+* (***) ***-**-**")},
+            data={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**")},
         )
