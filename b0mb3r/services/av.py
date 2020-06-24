@@ -7,5 +7,5 @@ class AzbukaVkusa(Service):
     async def run(self):
         await self.post(
             "https://oauth.av.ru/check-phone",
-            json={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**")},
+            json={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**"),},
         )

@@ -7,5 +7,5 @@ class MisterCash(Service):
     async def run(self):
         await self.get(
             "https://my.mistercash.ua/ru/send/sms/registration",
-            params={"number": "+" + self.formatted_phone, "g-recaptcha-response": ""},
+            params={"number": "+" + self.formatted_phone,},
         )

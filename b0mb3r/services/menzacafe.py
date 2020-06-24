@@ -7,5 +7,5 @@ class MenzaCafe(Service):
     async def run(self):
         await self.get(
             "https://menza-cafe.ru/system/call_me.php",
-            params={"fio": self.russian_name, "phone": self.formatted_phone, "phone_number": "1"},
+            params={"fio": self.russian_name, "phone": self.formatted_phone, "phone_number": "1",},
         )

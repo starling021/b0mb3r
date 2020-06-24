@@ -2,8 +2,6 @@ from b0mb3r.services.service import Service
 
 
 class ETM(Service):
-    phone_codes = [7]
-
     async def run(self):
         await self.post(
             "https://www.etm.ru/cat/runprog.html",
@@ -12,6 +10,5 @@ class ETM(Service):
                 "mode": "sendSms",
                 "syf_prog": "clients-services",
                 "getSysParam": "yes",
-                "param": "",
             },
         )

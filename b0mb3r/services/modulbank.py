@@ -6,5 +6,6 @@ class ModulBank(Service):
 
     async def run(self):
         await self.post(
-            "https://my.modulbank.ru/api/v2/auth/phone", json={"CellPhone": self.phone},
+            "https://my.modulbank.ru/api/v2/registration/nameAndPhone",
+            json={"FirstName": self.russian_name, "CellPhone": self.phone, "Package": "optimal"},
         )

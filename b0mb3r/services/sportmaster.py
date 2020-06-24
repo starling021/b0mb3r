@@ -7,5 +7,5 @@ class Sportmaster(Service):
     async def run(self):
         await self.get(
             "https://www.sportmaster.ru/user/session/sendSmsCode.do",
-            params={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**")},
+            params={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**"),},
         )
