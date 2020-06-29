@@ -10,6 +10,5 @@ class Dostaevsky(Service):
 
         await self.post(
             "https://dostaevsky.ru/auth/send-sms",
-            cookies=cookies,
             data={"phone": self.format(self.formatted_phone, "* *** ***-**-**"), "_token": cookies["XSRF-TOKEN"]},
         )
