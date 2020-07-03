@@ -20,7 +20,7 @@
 
     Установите приложение [Termux](https://play.google.com/store/apps/details?id=com.termux), запустите его и введите следующую команду:
      ```sh
-     pkg install python clang make openssl -y
+     pkg install python clang make -y
      ```
      <h3>Для Linux</h3>
 
@@ -29,14 +29,8 @@
 
 2. Введите следующую команду в [командную строку](http://comp-profi.com/kak-vyzvat-komandnuyu-stroku-ili-konsol-windows/) (Windows), терминал (Linux) или Termux (Android):
 
-Для Linux:
 ```sh
 pip3 install b0mb3r -U
-```
-
-Для Termux:
-```sh
-pip install b0mb3r -U
 ```
 
 ## 🚩 Запуск
