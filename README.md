@@ -20,7 +20,7 @@
 
     Установите приложение [Termux](https://play.google.com/store/apps/details?id=com.termux), запустите его и введите следующую команду:
      ```sh
-     pkg install python clang make -y
+     pkg install python clang make openssl -y
      ```
      <h3>Для Linux</h3>
 
