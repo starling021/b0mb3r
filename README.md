@@ -29,14 +29,8 @@
 
 2. Введите следующую команду в [командную строку](http://comp-profi.com/kak-vyzvat-komandnuyu-stroku-ili-konsol-windows/) (Windows), терминал (Linux) или Termux (Android):
 
-Для Linux:
 ```sh
 pip3 install b0mb3r -U
-```
-
-Для Termux:
-```sh
-pip install b0mb3r -U
 ```
 
 ## 🚩 Запуск
