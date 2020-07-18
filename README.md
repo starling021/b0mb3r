@@ -20,7 +20,7 @@
 
     Установите приложение [Termux](https://play.google.com/store/apps/details?id=com.termux), запустите его и введите следующую команду:
      ```sh
-     pkg install python clang make -y
+     pkg install python clang make openssl -y
      ```
      <h3>Для Linux</h3>
 
@@ -48,8 +48,8 @@ pip3 install b0mb3r -U
 
 ## Остались вопросы?
 1. Убедитесь, что прочли этот документ полностью
-2. Прочтите [это](http://neprivet.ru/)
-3. Напишите мне в [Telegram](https://t.me/crinny) или в чат: [@b0mb3r4at](https://t.me/b0mb3r4at)
+2. Прочтите [это](http://nometa.xyz/)
+3. Напишите в Telegram чат: [@b0mb3r4at](https://t.me/b0mb3r4at)
 
 Канал с новостями о разработке в Telegram: [@b0mb3rch](https://t.me/b0mb3rch).
 
