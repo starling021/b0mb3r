@@ -23,7 +23,9 @@ class Service(ABC):
         self.formatted_phone = phone
 
         self.russian_name = "".join(
-            random.choice("АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя")
+            random.choice(
+                "АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя"
+            )
             for _ in range(5)
         )
         self.username = self.password = "".join(

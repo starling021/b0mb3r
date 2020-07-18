@@ -7,5 +7,7 @@ class IQLab(Service):
     async def run(self):
         await self.post(
             "https://iqlab.com.ua/session/ajaxregister",
-            data={"cellphone": self.format(self.formatted_phone, "+** (***) *** ** **"),},
+            data={
+                "cellphone": self.format(self.formatted_phone, "+** (***) *** ** **"),
+            },
         )

@@ -28,7 +28,7 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=["b0mb3r"],
-    entry_points={"console_scripts": ["b0mb3r=b0mb3r.cli:main", "bomber=b0mb3r.cli:main",]},
+    entry_points={"console_scripts": ["b0mb3r=b0mb3r.cli:main", "bomber=b0mb3r.cli:main"]},
     install_requires=REQUIRED,
     extras_require={},
     package_data={"b0mb3r": ["services/*", "app/*", "app/*/*", "app/static/*/*"]},

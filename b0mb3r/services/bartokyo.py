@@ -7,5 +7,7 @@ class Bartokyo(Service):
     async def run(self):
         await self.post(
             "https://bartokyo.ru/ajax/login.php",
-            data={"user_phone": self.format(self.formatted_phone, "+* (***) ***-****"),},
+            data={
+                "user_phone": self.format(self.formatted_phone, "+* (***) ***-****"),
+            },
         )

@@ -7,6 +7,10 @@ class KiloVkusa(Service):
     async def run(self):
         await self.post(
             "https://kilovkusa.ru/ajax.php",
-            params={"block": "auth", "action": "send_register_sms_code", "data_type": "json"},
+            params={
+                "block": "auth",
+                "action": "send_register_sms_code",
+                "data_type": "json",
+            },
             data={"phone": self.format(self.formatted_phone, "* (***) ***-**-**")},
         )

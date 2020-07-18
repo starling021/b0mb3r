@@ -7,5 +7,8 @@ class RendesVouz(Service):
     async def run(self):
         await self.post(
             "https://www.rendez-vous.ru/ajax/SendPhoneConfirmationNew/",
-            data={"phone": self.format(self.formatted_phone, "+*(***)***-**-**"), "alien": "0"},
+            data={
+                "phone": self.format(self.formatted_phone, "+*(***)***-**-**"),
+                "alien": "0",
+            },
         )

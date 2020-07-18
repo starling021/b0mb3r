@@ -14,5 +14,6 @@ class IziUA(Service):
             },
         )
         await self.post(
-            "https://izi.ua/api/auth/sms-login", json={"phone": "+" + self.formatted_phone,}
+            "https://izi.ua/api/auth/sms-login",
+            json={"phone": "+" + self.formatted_phone,},
         )

@@ -9,6 +9,8 @@ class StarPizzaCafe(Service):
             "https://pizzasushiwok.ru/index.php",
             data={
                 "aj": "50",
-                "registration-phone": self.format(self.formatted_phone, "+** (***) ***-**-**"),
+                "registration-phone": self.format(
+                    self.formatted_phone, "+** (***) ***-**-**"
+                ),
             },
         )

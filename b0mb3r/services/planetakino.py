@@ -6,5 +6,6 @@ class PlanetaKino(Service):
 
     async def run(self):
         await self.get(
-            "https://cabinet.planetakino.ua/service/sms", params={"phone": self.formatted_phone}
+            "https://cabinet.planetakino.ua/service/sms",
+            params={"phone": self.formatted_phone},
         )

@@ -8,7 +8,11 @@ class LevinBH(Service):
             json={
                 "url": "/api/client/phone_verification",
                 "method": "POST",
-                "data": {"client_id": 5646981, "phone": self.formatted_phone, "alisa_id": 1},
+                "data": {
+                    "client_id": 5646981,
+                    "phone": self.formatted_phone,
+                    "alisa_id": 1,
+                },
                 "headers": {
                     "Client-Id": 5646981,
                     "Content-Type": "application/x-www-form-urlencoded",

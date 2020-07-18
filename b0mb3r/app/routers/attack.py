@@ -24,7 +24,9 @@ async def start_attack(attack: AttackModel):
     status[attack_id] = {"started_at": None, "currently_at": None, "end_at": None}
 
     asyncio.create_task(
-        perform_attack(attack_id, attack.number_of_cycles, country_code, only_digits_phone)
+        perform_attack(
+            attack_id, attack.number_of_cycles, country_code, only_digits_phone
+        )
     )
 
     return {"success": True, "id": attack_id}

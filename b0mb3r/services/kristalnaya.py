@@ -8,6 +8,7 @@ class Kristalnaya(Service):
         await self.post(
             "https://kristalnaya.ru/ajax/ajax.php?action=send_one_pas_reg",
             data={
-                "data": '{"phone":"%s"}' % self.format(self.formatted_phone, "+* (***) ***-**-**"),
+                "data": '{"phone":"%s"}'
+                % self.format(self.formatted_phone, "+* (***) ***-**-**"),
             },
         )
