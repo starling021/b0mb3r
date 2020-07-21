@@ -8,8 +8,8 @@ class Grillnica(Service):
         await self.post(
             "https://grilnica.ru/loginphone/",
             data={
-                "step": "0",
-                "phone": self.formatted_phone,
+                "step": 0,
+                "phone": self.format(self.formatted_phone, "+* (***) ***-****"),
                 "code": "",
                 "allow_sms": "on",
                 "apply_offer": "on",

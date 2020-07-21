@@ -6,7 +6,7 @@ URL = "https://github.com/crinny/b0mb3r"
 EMAIL = ""
 AUTHOR = "crinny"
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = "3.0.3.2"
+VERSION = "3.0.3.3"
 
 with open("requirements.txt", encoding="utf-8") as f:
     REQUIRED = f.readlines()
