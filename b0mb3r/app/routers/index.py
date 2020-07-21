@@ -15,5 +15,9 @@ templates = Jinja2Templates(directory=join(os.getcwd(), "app", "templates"))
 @router.get("/")
 def index(request: Request):
     return templates.TemplateResponse(
-        "index.html", {"request": request, "service_count": len(services[7])}
+        "index.html",
+        {
+            "request": request,
+            "service_count": len(services[7]),
+        },  # 7 corresponds to Russia which is a default choice
     )

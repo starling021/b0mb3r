@@ -9,3 +9,4 @@ phonenumbers
 click
 sentry-sdk
 loguru
+random_user_agent

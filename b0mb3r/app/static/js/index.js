@@ -73,9 +73,13 @@ document.querySelector("#main-form").addEventListener("submit", async (e) => {
             method: "GET"
         });
         let statusResponse = await response.json();
-        progressBar.animate(100 / statusResponse.end_at * statusResponse.currently_at / 100, {
-            duration: 250
-        });
+
+        try {
+            progressBar.animate(100 / statusResponse.end_at * statusResponse.currently_at / 100, {
+                duration: 250
+            });
+        } catch (err) {
+        }
 
         if (statusResponse.end_at === statusResponse.currently_at) {
             clearInterval(interval);

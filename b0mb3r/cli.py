@@ -7,11 +7,11 @@ import pkg_resources
 import uvicorn
 from loguru import logger
 
-os.chdir(os.path.join(pkg_resources.get_distribution("b0mb3r").location, "b0mb3r"))
-
 from b0mb3r.app.main import app
 from b0mb3r.logger import sentry_handler
 from b0mb3r.utils import open_url
+
+os.chdir(os.path.join(pkg_resources.get_distribution("b0mb3r").location, "b0mb3r"))
 
 logger.add(sentry_handler, level="ERROR")
 

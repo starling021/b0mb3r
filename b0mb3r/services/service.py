@@ -6,11 +6,13 @@ from typing import Callable
 
 import httpx
 from loguru import logger
+from random_user_agent.user_agent import UserAgent
 
 
 class Service(ABC):
+    user_agent_rotator = UserAgent()
     headers = {
-        "User-Agent": "Mozilla/5.0 (Linux; Android 5.0.2; 7045Y Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2728.43 Mobile Safari/537.36",
+        "User-Agent": user_agent_rotator.get_random_user_agent(),
         "X-Requested-With": "XMLHttpRequest",
     }
     country_codes = {"7": "ru", "375": "by", "380": "ua"}
