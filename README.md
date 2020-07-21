@@ -1,7 +1,4 @@
 <h1 align="center">Добро пожаловать в b0mb3r 👋</h1>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p align="center">
     Открытый и бесплатный СМС бомбер
     <br /><br />
@@ -10,7 +7,9 @@
     <img alt="Repo size" src="https://img.shields.io/github/repo-size/crinny/b0mb3r">
     <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
 </p>
-
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## 🚀 Установка
 
 1. Установите Python версии не ниже 3.7. Сделать это можно так:
