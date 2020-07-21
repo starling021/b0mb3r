@@ -1,7 +1,4 @@
 <h1 align="center">Добро пожаловать в b0mb3r 👋</h1>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p align="center">
     Открытый и бесплатный СМС бомбер
     <br /><br />
@@ -62,6 +59,10 @@ pip3 install b0mb3r -U
 [![Stargazers over time](https://starchart.cc/crinny/b0mb3r.svg)](https://starchart.cc/crinny/b0mb3r)
 
 ## Contributors ✨
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
