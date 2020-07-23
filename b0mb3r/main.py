@@ -4,7 +4,7 @@ from datetime import datetime
 from loguru import logger
 
 from b0mb3r.app.status import status
-from b0mb3r.service import services
+from b0mb3r.service import prepare_services
 from b0mb3r.utils import await_with_callback
 
 
@@ -12,6 +12,7 @@ from b0mb3r.utils import await_with_callback
 async def perform_attack(
     attack_id: str, number_of_cycles: int, country_code: int, phone: str
 ):
+    services = prepare_services()
     usable_services = services.get(country_code, services["other"])
 
     status[attack_id]["started_at"] = datetime.now().isoformat()

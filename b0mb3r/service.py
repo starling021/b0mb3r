@@ -1,13 +1,15 @@
 import inspect
 import os
 import sys
+from functools import lru_cache
 from typing import Dict, Union
 
 from loguru import logger
 
 
 @logger.catch
-def prepare_services(directory: str) -> Dict[Union[int, str], list]:
+@lru_cache(maxsize=None)
+def prepare_services(directory: str = "services") -> Dict[Union[int, str], list]:
     loaded_services = load_services(directory)
     all_phone_codes: Dict[Union[int, str], list] = {}
     special_services = []
@@ -45,8 +47,3 @@ def load_services(directory: str) -> list:
                     loaded_services.append(getattr(module, member[0]))
 
     return loaded_services
-
-
-services = prepare_services(
-    "services"
-)  # This function takes some time, so it is better to only run it once
