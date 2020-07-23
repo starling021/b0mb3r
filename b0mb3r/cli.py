@@ -10,6 +10,7 @@ from loguru import logger
 os.chdir(os.path.join(pkg_resources.get_distribution("b0mb3r").location, "b0mb3r"))
 
 from b0mb3r.app.main import app
+from b0mb3r.service import prepare_services
 from b0mb3r.logger import sentry_handler
 from b0mb3r.utils import open_url
 
@@ -28,6 +29,9 @@ def main(ip: str, port: int, only_api: bool = False):
 
     app.state.only_api = only_api
 
+    prepare_services()
+
     if not only_api:
         open_url(f"http://{ip}:{port}/")
+
     uvicorn.run(app, host=ip, port=port, log_level="error")
