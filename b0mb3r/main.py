@@ -21,17 +21,16 @@ async def perform_attack(
 
     for cycle in range(number_of_cycles):
         logger.info(f"Started cycle {cycle + 1} of attack {attack_id}")
-        for service in usable_services:
-            logger.debug(f"Running {service.__name__} in attack {attack_id}")
-            asyncio.create_task(
-                await_with_callback(
-                    service(phone, country_code).run(),
-                    update_count,
-                    attack_id=attack_id,
-                )
+
+        tasks = [
+            await_with_callback(
+                service(phone, country_code).run(), update_count, attack_id=attack_id,
             )
-        # TODO Make sure every task from previous cycle have completed before starting new one
-        await asyncio.sleep(3)
+            for service in usable_services
+        ]
+
+        for task in asyncio.as_completed(tasks):
+            await task
 
     logger.success(f"Attack {attack_id} on +{phone} ended")
 
