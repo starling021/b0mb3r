@@ -28,9 +28,6 @@ def main(ip: str, port: int, only_api: bool = False):
 
     app.state.only_api = only_api
 
-    open_url(f"http://{ip}:{port}/")
+    if not only_api:
+        open_url(f"http://{ip}:{port}/")
     uvicorn.run(app, host=ip, port=port, log_level="error")
-
-
-if __name__ == "__main__":
-    main()
