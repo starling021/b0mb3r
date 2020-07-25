@@ -53,7 +53,6 @@ pip3 install b0mb3r -U
 
 Канал с новостями о разработке в Telegram: [@b0mb3rch](https://t.me/b0mb3rch).
 
-
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/crinny/b0mb3r.svg)](https://starchart.cc/crinny/b0mb3r)
