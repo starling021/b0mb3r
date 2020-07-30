@@ -43,7 +43,7 @@ def get_attack_status(attack_id: str):
 
 @logger.catch
 @router.post("/{attack_id}/stop")
-def get_attack_status(attack_id: str):
+def stop_attack(attack_id: str):
     if attack_id not in attack_tasks:
         raise HTTPException(status_code=404)
 

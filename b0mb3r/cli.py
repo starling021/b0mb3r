@@ -7,7 +7,7 @@ import pkg_resources
 import uvicorn
 from loguru import logger
 
-# os.chdir(os.path.join(pkg_resources.get_distribution("b0mb3r").location, "b0mb3r"))
+os.chdir(os.path.join(pkg_resources.get_distribution("b0mb3r").location, "b0mb3r"))
 
 from b0mb3r.app.main import app
 from b0mb3r.service import prepare_services

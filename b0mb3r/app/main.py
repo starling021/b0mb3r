@@ -6,9 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from b0mb3r.app.routers import attack, services, index
-from b0mb3r.utils import retrieve_installed_version
 
-app = FastAPI(title="b0mb3r", version=retrieve_installed_version())
+app = FastAPI(title="b0mb3r")
 
 app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],
