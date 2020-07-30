@@ -7,8 +7,8 @@ from fastapi import APIRouter, HTTPException
 from loguru import logger
 
 from b0mb3r.app.models import AttackModel, StatusModel
-from b0mb3r.app.status import status
-from b0mb3r.main import perform_attack
+from b0mb3r.app.status import status, attack_tasks
+from b0mb3r.main import AttackLogic
 
 router = APIRouter()
 
@@ -23,11 +23,12 @@ async def start_attack(attack: AttackModel):
     attack_id = uuid.uuid4().hex
     status[attack_id] = {"started_at": None, "currently_at": None, "end_at": None}
 
-    asyncio.create_task(
-        perform_attack(
-            attack_id, attack.number_of_cycles, country_code, only_digits_phone
-        )
+    attack_logic = AttackLogic(
+        attack_id, attack.number_of_cycles, country_code, only_digits_phone
     )
+
+    task = asyncio.create_task(attack_logic.perform_attack())
+    attack_tasks[attack_id] = task
 
     return {"success": True, "id": attack_id}
 
@@ -38,3 +39,15 @@ def get_attack_status(attack_id: str):
     if attack_id not in status:
         raise HTTPException(status_code=404)
     return StatusModel(**status[attack_id])
+
+
+@logger.catch
+@router.post("/{attack_id}/stop")
+def get_attack_status(attack_id: str):
+    if attack_id not in attack_tasks:
+        raise HTTPException(status_code=404)
+
+    status[attack_id]["currently_at"] = status[attack_id]["end_at"] = 1
+    attack_tasks[attack_id].cancel()
+
+    return {"success": True}

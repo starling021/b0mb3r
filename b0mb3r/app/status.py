@@ -1,3 +1,6 @@
-from typing import Dict
+from asyncio import Task
+from typing import Dict, Union, Optional
 
-status: Dict[str, dict] = {}
+status: Dict[str, Dict[str, Optional[Union[str, int]]]] = {}
+
+attack_tasks: Dict[str, Task] = {}

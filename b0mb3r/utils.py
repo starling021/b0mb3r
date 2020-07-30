@@ -5,6 +5,7 @@ import sys
 import webbrowser
 from functools import lru_cache
 from typing import Awaitable, Callable
+import asyncio
 
 from loguru import logger
 
@@ -53,6 +54,8 @@ async def await_with_callback(
 ):
     try:
         await coroutine
+    except asyncio.CancelledError:
+        raise
     except Exception:
         pass
     finally:
