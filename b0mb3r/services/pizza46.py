@@ -7,5 +7,5 @@ class Pizza46(Service):
     async def run(self):
         await self.post(
             "https://pizza46.ru/ajaxGet.php",
-            data={"phone": self.format(self.formatted_phone, "+* (***) ***-****"),},
+            data={"phone": self.format(self.formatted_phone, "+* (***) ***-****")},
         )

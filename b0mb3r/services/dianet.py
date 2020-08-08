@@ -6,5 +6,5 @@ class Dianet(Service):
 
     async def run(self):
         await self.post(
-            "https://my.dianet.com.ua/send_sms/", data={"phone": self.phone,},
+            "https://my.dianet.com.ua/send_sms/", data={"phone": self.phone},
         )

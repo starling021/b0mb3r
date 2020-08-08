@@ -7,5 +7,5 @@ class Cinema5(Service):
     async def run(self):
         await self.post(
             "https://cinema5.ru/api/phone_code",
-            data={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**"),},
+            data={"phone": self.format(self.formatted_phone, "+* (***) ***-**-**")},
         )

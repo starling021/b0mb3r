@@ -7,5 +7,5 @@ class SushiGourmet(Service):
     async def run(self):
         await self.post(
             "http://sushigourmet.ru/auth",
-            data={"phone": self.format(self.phone, "8 (***) ***-**-**"), "stage": 1,},
+            data={"phone": self.format(self.phone, "8 (***) ***-**-**"), "stage": 1},
         )
