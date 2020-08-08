@@ -48,7 +48,7 @@ pip3 install b0mb3r -U
 
 ## Остались вопросы?
 1. Убедитесь, что прочли этот документ полностью
-2. Прочтите [это](http://nometa.xyz/)
+2. **Прочтите [самые частые ошибки и методы их исправления](https://github.com/crinny/b0mb3r/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0-%D1%87%D1%82%D0%BE-%D1%82%D0%BE-%D0%B8%D0%B4%D1%91%D1%82-%D0%BD%D0%B5-%D1%82%D0%B0%D0%BA)**
 3. Напишите в Telegram чат: [@b0mb3r4at](https://t.me/b0mb3r4at)
 
 Канал с новостями о разработке в Telegram: [@b0mb3rch](https://t.me/b0mb3rch).
