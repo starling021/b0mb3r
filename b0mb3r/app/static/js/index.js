@@ -44,17 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 phoneInput.addEventListener('countrychange', async () => {
-    let countResponse = await fetch(`/services/count?country_code=${intlTelInput.getSelectedCountryData().dialCode}`, {
+    const countResponse = await fetch(`/services/count?country_code=${intlTelInput.getSelectedCountryData().dialCode}`, {
         method: 'GET',
     });
-    let content = await countResponse.json();
+    const content = await countResponse.json();
     serviceCount.innerHTML = content.count;
 
     phoneInput.placeholder = countryPlaceholders[intlTelInput.getSelectedCountryData().iso2];
 });
 
-document.querySelector('#main-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.querySelector('#main-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
 
     setTimeout(() => document.querySelector('#block-ui').style.display = 'block', 850);
     setTimeout(() => document.querySelector('.stop').style.display = 'block', 850);
@@ -70,9 +70,9 @@ document.querySelector('#main-form').addEventListener('submit', async (e) => {
         animation-fill-mode: both;
     `;
 
-    let phone = intlTelInput.getSelectedCountryData().dialCode + document.querySelector('#phone').value;
+    const phone = intlTelInput.getSelectedCountryData().dialCode + document.querySelector('#phone').value;
 
-    let response = await fetch('/attack/start', {
+    const response = await fetch('/attack/start', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -83,14 +83,14 @@ document.querySelector('#main-form').addEventListener('submit', async (e) => {
         }),
     });
 
-    let attackResponse = await response.json();
+    const attackResponse = await response.json();
     attackId = attackResponse.id;
 
     const interval = setInterval(async () => {
-        let response = await fetch(`/attack/${attackResponse.id}/status`, {
+        const response = await fetch(`/attack/${attackResponse.id}/status`, {
             method: 'GET',
         });
-        let statusResponse = await response.json();
+        const statusResponse = await response.json();
 
         try {
             progressBar.animate(100 / statusResponse.end_at * statusResponse.currently_at / 100, {
@@ -120,15 +120,15 @@ document.querySelector('#main-form').addEventListener('submit', async (e) => {
 });
 
 document.querySelector('.stop').addEventListener('click', async () => {
-    if (attackId !== '') {
-        await fetch(`/attack/${attackId}/stop`, {
-            method: 'POST',
-        });
-    }
+    if (!attackId.length) return;
+
+    await fetch(`/attack/${attackId}/stop`, {
+        method: 'POST',
+    });
 });
 
-function blurDocument() {
-    let cssText = `
+const blurDocument = () => {
+    const cssText = `
         animation: blur;
         animation-duration: 850ms;
         animation-fill-mode: both;
@@ -136,8 +136,8 @@ function blurDocument() {
     document.querySelector('main').style.cssText = document.querySelector('footer').style.cssText = cssText;
 }
 
-function unblurDocument() {
-    let cssText = `
+const unblurDocument = () => {
+    const cssText = `
         animation: blur;
         animation-duration: 850ms;
         animation-fill-mode: both;
