@@ -60,7 +60,7 @@ pip3 install b0mb3r -U
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -83,6 +83,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/aiexz"><img src="https://avatars3.githubusercontent.com/u/42418433?v=4?s=100" width="100px;" alt=""/><br /><sub><b>aiexz</b></sub></a><br /><a href="https://github.com/crinny/b0mb3r/commits?author=aiexz" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/GameTrue"><img src="https://avatars3.githubusercontent.com/u/45202887?v=4?s=100" width="100px;" alt=""/><br /><sub><b>GameTrue</b></sub></a><br /><a href="https://github.com/crinny/b0mb3r/issues?q=author%3AGameTrue" title="Bug reports">🐛</a> <a href="https://github.com/crinny/b0mb3r/commits?author=GameTrue" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/AntsiferovBogdan"><img src="https://avatars1.githubusercontent.com/u/58101453?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Antsiferov Bogdan</b></sub></a><br /><a href="https://github.com/crinny/b0mb3r/commits?author=AntsiferovBogdan" title="Code">💻</a> <a href="#design-AntsiferovBogdan" title="Design">🎨</a></td>
+    <td align="center"><a href="https://vipapp.site/"><img src="https://avatars2.githubusercontent.com/u/46930374?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alex Sokol</b></sub></a><br /><a href="https://github.com/crinny/b0mb3r/commits?author=y9san9" title="Documentation">📖</a></td>
   </tr>
 </table>
 
